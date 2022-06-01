@@ -1,0 +1,224 @@
+Tutorial-2
+
+What is the time complexity of below code?
+
+
+void fun(int n)
+{
+   int j=1,i=0;
+   while(I<n)
+   {
+      i=I+j;
+       j++;
+    }
+}
+
+
+j              i
+
+1             0
+1             1
+2             3
+3             6
+4            10
+5            15
+
+
+
+S=0+1+3+6+10+15+…..Tk
+Also. S=0+1+3+6+……T(k-1)+Tk
+
+0=1+2+3+4+5….k-Tk
+Tk=1/2k(k+1)
+
+
+For k iteration
+
+1+2+3+….k<n
+
+k(k+1)/2 <n
+
+(k^2+k)/2 <n
+
+√((k^2/2+k/2))<√n
+
+k=O(√n)
+
+T(n)=O(√n)
+
+
+
+2. Write recurrence relation for recursive function that prints fibonacci series. Solve the recurrence relation to get time complexity of the program. What will be the space complexity of this program and why?
+
+0 1 1 2 3 5…n
+
+Int fib(int n)
+{ 
+  if(n<=1)
+ Return n;
+Return fib(n-1)+fib(n-2)-T(n-1)+T(n-2)
+}
+
+T(n)=T(n-1)+T(n-2)+1
+
+
+
+
+                                                          fib(4)                           -1
+          
+                                                 /                       \
+                                            fib(3)                   fib(2)                -2
+              
+                                      /              \              /          \
+                                  fib(2)          fib(1)      fib(1)       fib(0)       -4
+                    
+                              /            \
+                           fib(1)       fib(0)                                             -8
+
+
+
+T(n)= 1+2+4+8+…+n
+S(n)=a(r^n. -1)/(r-1)
+
+       = (2^(n+1)-1)
+T(n)=2^n.2-1
+
+T(n)=O(2^n)
+
+Space Complexity->O(1)
+
+
+As recursive implementation doesn’t store any values and calculates every value from scratch.
+So, as complexity of 1 call is O(1)
+
+Therefore Total space Complexity=O(1)
+
+
+3. Program which have complexity.
+
+(n log n)
+  
+  for(i=1; I<=n;i=i*2)                     //log n
+      for(j=1;j<=n; j++)                   //n
+           Int s=1;
+
+
+
+O(n log n)
+
+
+
+B. n^3
+
+for(i=0; i<=n ;++i)                        //n
+    for(j=0;j<=n;++j)                      //n
+        for(k=0;k<=n;++k)              //n
+            cout<<“Hi”;
+O(n^3)
+C. log(log n)
+
+for(int I=2;i<n;i=pow(i,2)
+   cout<<“Hi”;
+
+
+
+4.T(n)=T(n/4)+T(n/2)+cn^2
+
+By neglecting lower order term T(n/4)
+
+T(n)=T(n/2)+cn^2
+a=1, b=2
+c=log 1
+=0
+n^c=n^0=1
+1<cn^2
+
+T(n)=θ(n^2)
+
+
+5. int function( int n)
+{
+      for(int i =1;i<=n; ++i)
+          for(int j=1;j<n; j+=1)
+              cout<<“Hi”;
+
+
+
+for i=1     j=1+2+3+4+5+6+…
+for i=2     j=1, 3, 5, 7…..n
+for i=3     j=1, 4, 7,…n
+
+
+T(n)=n+n/2+n/3+n/4+….1
+T(n)=n(1+1/2+1/3+1/4+….1/n)
+
+O(n log n)
+
+
+
+
+6. Time Complexity
+
+
+for(int i=2; I<=n;i=pow(i, k))
+{}
+Where k is constant
+
+
+
+First iteration   i=2 
+Second            I=2^k
+Third                 I=(2^k)^k
+.
+.
+.
+.
+Nth iteration I=(2^k)^I=n
+
+Applying log->log n =log ki=ki
+Applying log again
+i=log log(n)
+
+T(n)=log log n
+
+7. Given algorithm divides array in 99% and 1 % part
+
+T(n)=T(n-1)+O(1)
+
+                 
+                                     N
+                                 /        \
+                            N-1.         1
+                        /        \
+                      N-2       1
+                   .
+                  .
+                 .
+                1
+
+
+n=[ T(n-1)+T(n-2)+…..T(1)+O(1) ]x n
+=n x n
+Since T(n)=O(n^2)
+
+Lowest height=2
+Highest height=n
+
+Since diff=n-2 [ Since n>1]
+The given algorithm provide linear result
+
+
+8. Arrange the following in increasing order of growth rate
+
+
+n, n!, log n, log log n, root(n), log(n!), n log n, (log n)^2, 2^n, (2^2)^x, 4^x, n^2, 100
+
+100<log log n<log n<(log n)^2<√n<n<n log n<log(n !)<n^2<2^n<4^n<(2^2)^n
+
+b. 2(2^n), 4n, 2n, 1, log n, log(log n), √log n, log 2n, 2log n, n, log(n !), n!, n^2, n log(x)
+
+1<log log n<√log n<log n<log 2n<2log n<n<n log n<2n<4n<log(n!)<n^2<n!<2(2^n)
+
+c. 8^2n, log n, n log6 n, n log2 n, log n!, n!, loge x, 96, 8x^2, 7x^3,5x
+
+96<log8 n< log 2n< 5n< nlog6 n< nlog n<log(n!)<8n^2<7n^3<n!<8^2n<7n^3<n!<8^2^n
