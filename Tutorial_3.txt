@@ -1,0 +1,252 @@
+Tutorial 3
+
+Write linear search pseudo code to search an element in a sorted array with minimum comparisons.
+
+      boolean linearSearch(a[], e, n)
+      {
+          i=0
+          while( a[I] < e && i < n)
+           {
+               if a[I]=e
+                 return true
+               i+=1
+            }
+          return false
+        }
+
+2. Write pseudo code for iterative and recursive insertion sort. Insertion sort is called online sorting, why? What about other sorting algorithms that has been discussed in lectures.
+
+ Iterative
+
+ void insertionSort(a[], n)
+{   for i=1 to n-1
+        temp=a[I]
+         j=i-1
+         while(j >=0 && a[j] > temp)
+            a[j+1]=a[j]
+             j- -
+         a[j+1]=temp
+}
+
+
+Recursive
+
+Void insertionSort(arr[], n)
+{
+   if n<=1
+       return insertionSort(are, n-1)
+   last =arr[n-1]
+   j=n-2
+   while(j>=0 && arr[j] > last)
+           arr[j+1]=arr[j]
+            j- -
+   arr[j+1]=last
+ }
+
+
+
+Insertion sort is called online sorting algorithm because insertion sort considers one input element per iteration and produces a partial solution without considering future elements.
+
+
+3.  Complexity of all sorting algorithms that has been discussed in lectures.
+
+Sorting techniques	       Best          	Average	            Worst
+Bubble Sort	               O(n)	           O(n^2)                O(n^2)
+Selection Sort	           O(n^2)	         O(n^2)	              O(n^2)
+Insertion Sort	           O(n)	           O(n^2)	              O(n^2)
+Heap Sort	                 O(n log n)      O(n log n)	          O(n log n)
+Quick Sort               	 O(n log n)    	 O(n log n)	          O(n^2)
+Merge Sort	               O(n log n)	     O(n log n)	          O(n log n)
+Count Sort	               O(n+k)	         O(n+k)	              O(n+k)
+
+
+4. Divide all the sorting algorithm into inplace/stable/online sorting.
+
+Sorting Algorithm	    Inplace  	Stable  	Online
+Bubble Sort	             O	       O	       X
+Selection Sort	         O      	 X	       X
+Insertion Sort	         O	       O	       O
+Quick Sort	             O	       X	       X
+Merge Sort	             X	       O	       X
+Heap Sort	               O	       X	       X
+
+5. Write recursive/iteration pseudo code for binary search. What is the time and space complexity of linear and Binary Search [ Recursion and Iteration ]
+
+
+Iteration
+
+int binarySearch(a[], x)
+{
+    low=0, high=a.length-1
+    while( low <=high )
+         mid=(low+high)/2
+          if n==a[mid]
+             return mid
+           else if (n< a[mid])
+               high=mid-1
+           else
+               low=mid+1
+      return -1
+}
+
+Recursive
+
+Int binarySearch(a[], low, high, x)
+{     if low> high
+      return -1
+      mid=(low+high)/2
+      if x=a[mid]
+        return mid
+       else if (n<a[mid])
+         return binarySearch(A, low, min-1, n)
+       else
+         return binarySearch(A, mid+1, high, n)
+}
+
+
+
+Linear Search
+
+Time Complexity -> O(n)
+Space Complexity ->O(1)
+
+Binary Search
+
+Time Complexity -> O(log n)
+Space Complexity ->O(1)
+
+
+6. Write recurrence relation for binary recursive search.
+
+Recurrence Reaction->T(n)=T(n/2)+1
+
+Derivation
+
+T(n)=T(n/2)+1
+
+Put n=n/2 
+T(n/2)=T(n/4)+1
+
+
+T(n)=T(n/4)+1+1
+
+T(n/4)=T(n/8)+1
+
+T(n)=T(n/2^k)+(1+1+k)
+
+Put n/2^k=1
+n=2^k
+Log n=k
+
+T(n)=T(1)+log n
+T(n)=1+log n
+
+T(n)= O(log n)
+
+
+
+
+
+7. Find two indexes such that A[i] +A[j] =k in minimum time complexity.
+
+ vector<int> find(arr[], k, n)
+ {
+   vector<int> sol;
+   for i=0 to n-1
+       for j=0 to n
+          if arr[i]+arr[j]=k
+            sol.pushback(i)
+             sol.pushback(j)
+             return sol
+
+8. Which sorting is best for practical uses ? Explain.
+
+Quick Sort is the fastest general purpose sort. In most practical situations quick sort is a method of choice. If stability is important and space is available, merge sort might be best. In some performance-critical apptuations, the focus maybe on just sorting numbers, so it is reasonable to avoid the costs of using references and sort primitive type instead.
+
+9. What do you mean by number of inversions in an array? Count the number of inversions in array arr[]={ 7, 21, 31, 8, 10, 1, 20, 6, 4, 5} using merge sort.
+
+Inversion count for an array indicates how far or close the array is from being sorted. If the array is already sorted then the inversion count is 0, but if the array is already sorted, then the inversion count is 0, but if the array is sorted in reverse order, the inversion count is the maximum.
+Pair of inversions in array arr[]= (7,1) (7,6) (7,4) (7,5) (21,8) (21,10) (21,1) (21,20) (21,6) (21,4) (21, 5) (31,10) (31,1) (31,20) (31,6) (31,4) (31,5) (8,1) (8,6) (8,4) (8,5) (10,1) (10,6) (10,4) (10, 5) (20,5) (6,4) (6,5)
+
+count=31.
+
+10. In which cases quick sort will give the best and the worst case time complexity?
+
+
+Best Case-> The best case occurs when the partition process always picks the middle element as pivot. Following is the recurrence relation for best case
+         T(n)=2T(n/2)+θ(n)
+
+Worst Case-> The worst case occurs when the partition process always picks greatest or smallest element as pivot. In above partition strategy is considered where last element as pivot. In above partition strategy is considered where last element is always picked as pivot, the worst case would occur when the array is already sorted in increasing or decreasing order.
+
+
+11.Write Recurrence Relation of merge and quick sort in best and worst case? What are the similarities and differences between complexities of two algorithms and why?
+
+Quick Sort-> Recurrence Relation - Best Case-> T(n)=2T(n/2)+θ(n)
+Worst case->T(n)=T(n-1)+θ(n)
+ 
+Merge Sort->Recurrence Relation - Best Case-> T(n)=2T(n/2)+θ(n)
+Worst case->T(n)=2T(n/2)+θ(n)
+
+Time Complexity:
+ 
+                           Best Case.  Worst case
+Quick Sort         O(nlog n)         O(n^2)
+Merge Sort        O(nlog n)         O(nlog n)
+
+12. Selection sort is not stable by default but can you write a version of stable selection sort.
+
+void stableSelectionSort(int a[], int n)
+{
+    for(int I=0; I<n-1; I++)
+      {
+         int min=I;
+          for(int j=I+1; j<n;++j)
+             {
+               if(a[min] >a[j]
+                 min=j;
+              }
+          Int key=a[min];
+while(min>i)
+{
+    a[min]=a[min-1];
+    min- -;
+}
+a[I]=key;
+}
+}
+
+
+13. Bubble sort scans whole array even when array is sorted. Can you modify the bubble sort that it doesn’t scan the whole array once it is sorted.
+
+void bubbleSort( int a[], int n)
+{     for(int I=0; I<=n-2;++i)
+      {
+         boolean flag=false;
+         for(int j=0;j<=n-i-2;++j)
+           {
+               if(A[j]>A[j+1])
+                 {
+                    Int temp=A[j];
+                    A[j]=A[j+1];
+                    A[j+1]=temp;
+                    flag=true;
+                   }
+            }
+      if(flag==false)
+         break;
+   }
+}
+
+
+14.Your computer has a RAM (physical memory) of 2GB and you are given an array of 4GB of sorting. Which algorithm you are going to use for this purpose and why? Also, explain the concept go External and Internal Sorting.
+
+
+For such a sorting, we will use external sorting technique because external sorting algorithm can handle large amount of memory which cannot fit in the main memory.
+
+
+External Sorting Technique-> In external sorting techniques, only a part of the array resides in the RAM during execution, therefore it can handle large memory array which cannot fit into the main memory.
+Example-> K-way Merge Sort.
+
+Internal Sorting Technique-> In these sorting techniques, the whole array needs to reside in the main memory, I.e. RAM during execution.
+Example-> Bubble Sort, etc.
+
