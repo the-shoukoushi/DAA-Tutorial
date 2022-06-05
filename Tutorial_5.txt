@@ -1,0 +1,71 @@
+1.
+Key                                  	BFS                                                                	DFS
+Definition	                   Stands for  Breadth First Search                                 	      Stands for Depth First Search
+Data Structure	               It uses Queue to find shortest path.	                                    It uses stack to find shortest path
+Source	                       It is better when large is closer to source	                            It is better when target is dar from source
+Suitable for decision tree	   It consist of all neighbour so it is not suitable for decision tree	    It is more suitable with decision.
+Speed                        	 It is slower than DFS                                                 	  It is faster than BFS
+
+
+
+
+2.
+
+Stack is used to implement DFS because in it we first traverse the whole branch of tree and later on visit the adjacent branch since this is similar to LIFO therefore stack is used.
+Queue is used to implement BFS it is because queue is used as FIFO instead since BFS is to test the immediate children first and after all immediate children are tested to their return to those children and check their children and so forth.
+
+
+3.
+
+Sparse graph-> Graph where number of edges is much less than possible number of edges.
+Dense graph-> Where number of edges is much close to maximal number of edges. If graph is parse it should be represented by adjacency list.
+
+4. 
+
+BFS -> In undirected graph do a BFS traversal on given graph for each visited vertex v, if there is an adjacent ‘I’ such that ‘v’ is already visited and ‘u’ is not parent of ‘v’ then there is cycle in graph.
+
+DFS -> run DFS from a node and mark this node as visited now for any other vertex if its neighbour is already visited and that neighbour is not parent of that current node than there exist a cycle in graph.
+
+5.
+
+Disjoint set data structure
+The disjoint set can be defined as subsets where there is no common element between two sets.
+Operations are
+Union
+Make new set
+Find
+
+6.
+
+BFS
+
+A->B->C->D->E
+G->H->F
+
+DFS
+
+A->D->C->B
+G->F->H
+
+7.
+
+Connected components = 4
+Vertices = 10
+
+8. 
+
+Topological sort -> 0-1-2-3-4-5
+DFS->5-2-3-1-0
+4 can’t be reached
+
+9.
+
+Yes, heap data structure can be used to create priority queue
+Dijkstra’s to find shortest path
+Prim’s Algorithm
+Hoffman algorithm
+
+10.
+
+Min Heap-> root element is smallest
+Max Heap-> root element is largest
